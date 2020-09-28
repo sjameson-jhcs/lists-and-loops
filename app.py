@@ -1,117 +1,126 @@
-# ******************************************************
-# ****** SECTION 1 - ABOUT CONDITIONAL STATEMENTS ******
-# ******************************************************
+# *******************************
+# ****** SECTION 1 - LISTS ******
+# *******************************
 
-# Conditional Statements
-#   - Logical statements that tell your code to only do something IF a condition is true
-#   - Usually takes the form: IF [condition] THEN [action]
-#   - Conditions can be anything that is TRUE or FALSE (Boolean or a comparison using an operator)
+# Lists are like variables except they can store more than one value
+# They defined by using square brackets like this:
+# name = [contents]
 
-# ********************************************
-# ****** SECTION 2 - BASIC IF STATEMENT ******
-# ********************************************
+days_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+prime_numbers = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+mixed_bag_of_stuff = ["blah", 4.2, False, 18]
 
-# Just some boolean variables to use as a demonstration
-is_sky_blue = True
-is_water_dry = False
+# *******************************
+# ****** SECTION 2 - Index ******
+# *******************************
 
-# Basic if-statements using a boolean variable as the condition
-if is_sky_blue:
-    print("Correct, the sky is blue.")
-if is_water_dry:
-    print("Water is dry?")
+# Every spot in an list has a number associated with it
+# The first spot in the list is given the number 0
+print(days_of_the_week)
+# print(days_of_the_week[0])
+# print(days_of_the_week[6])
 
-# # Now using a comparison for the condition
-# if 1 < 2:
-#     print("1 is less than 2")
-# if 1 > 2:
-#     print("1 is greater than 2?")
-# if "test" == "test":
-#     print("These strings match")
+# You can use negative numbers to index from the end of a list
+# print(days_of_the_week[-1])
+# print(days_of_the_week[-2])
 
-# *****************************************
-# ****** SECTION 3 - ELSE CONDITIONS ******
-# *****************************************
+# *************************************************
+# ****** SECTION 3 - Multi-Dimensional Lists ******
+# *************************************************
 
-# # The "else" statement occurs if the condition is false
-# grade = 95
-# if grade >= 70:
-#     print("you passed")
-# else:
-#     print("you failed")
-#
-# # The elif (else if) condition is only checked if the first condition is false
-# speed = 55
-# if speed < 40:
-#     print("Too slow")
-# elif speed > 70:
-#     print("Too fast")
-# else:
-#     print("Acceptable speed")
+# You can put lists inside of lists when appropriate
+# Note: it is often convenient to write them on multiple lines but it is not required.
+classes_grouped_by_department = [["Algebra", "Geometry"],
+                                 ["Creative Writing", "British Lit."],
+                                 ["Physics", "Chemistry", "Biology"]]
 
-# *****************************
-# ****** SECTION 4 - NOT ******
-# *****************************
-
-# # The exclamation point (!) or not can be used check that something is NOT true.
-# a = 7
-# b = 10
-# if a != b:
-#     print("These numbers are not equal.")
-# else:
-#     print("These numbers are equal")
-#
-# # Remember that is_water_dry was set to FALSE. So this condition is "not False" which is equal to "True".
-# if not is_water_dry:
-#     print("The 'not' forces a logical opposite. Water is NOT dry, therefore the condition is considered True.")
+# To access an index in a multi-dimensional array you need to specify both indices
+# print(classes_grouped_by_department[0][1])
+# print(classes_grouped_by_department[2][2])
 
 # **************************************
-# ****** SECTION 5 - COMBINATIONS ******
+# ****** SECTION 4 - Dictionaries ******
 # **************************************
 
-# # The "and" requires that BOTH conditions be true in order for the action to occur
-# am_hungry = True
-# is_tuesday = False
-# if am_hungry and is_tuesday:
-#     print("Eat tacos.")
-# else:
-#     print("No tacos.")
+# A dictionary is similar to a list except each index has a key with a name
+# We call these key/value pairs
+# They are defined with curly braces and colons between the keys/values.
+# name = {"key 1": "value 1", "key 2": "value 2", etc.}
+
+pro_football_teams = {"Chicago": "Bears", "Cincinnati": "Bengals", "Miami": "Dolphins"}
+# print(pro_football_teams)
+# print(pro_football_teams["Chicago"])
+
+# ***********************************
+# ****** SECTION 5 - FOR LOOPS ******
+# ***********************************
+
+# Any code inside of a loop will repeat a designated number of times
+# A "For Loop" is most commonly used to loop through a list or dictionary
+
+# Example with a list
+# for day in days_of_the_week:
+#     print(day)
+#     if day == "Saturday":
+#         print("WooHoo!")
+
+# Example with a dictionary
+# for city, mascot in pro_football_teams.items():
+#     print(city)
+#     print(mascot)
+
+# Sometimes you may want a loop to repeat a known number of times
+# You can use range(x) to specify a number of loops
+# for i in range(10):
+#     print(i)
+
+# *************************************
+# ****** SECTION 6 - WHILE LOOPS ******
+# *************************************
+
+# A "While Loop" will continue to run while a condition is true
+# day_counter = 0
+# while days_of_the_week[day_counter] != "Saturday":
+#     print(days_of_the_week[day_counter])
+#     day_counter += 1
+#     if day_counter > 6:
+#         break
+
+# Notice: it is usually a good idea to add a break condition to avoid infinite loops.
+
+# A continue will stop the current iteration of the loop and start the next one
+# day_counter = 0
+# while days_of_the_week[day_counter] != "Saturday":
+#     if day_counter == 2:
+#         day_counter += 1
+#         continue
+#     print(days_of_the_week[day_counter])
+#     day_counter += 1
+
+# user_command = ""
+# iteration_count = 0
+# while user_command != "quit":
+#     user_command = input("User Command? ")
+#     iteration_count += 1
+#     print(f"Iteration Count = {iteration_count}")
+#     if iteration_count >= 10:
+#         break
+
+
+# **************************************
+# ****** SECTION 6 - NESTED LOOPS ******
+# **************************************
+
+# Loops can be put inside of loops. This is often useful for multi-dimesional lists
+# There is a multiplicative factor for the number of times the loops will run
+
+# courses_dictionary = {
+#     "Math": ["Algebra", "Geometry", "Calculus", "Trigonometry"],
+#     "English": ["Creative Writing", "British Lit."],
+#     "Science": ["Physics", "Chemistry", "Biology"]
+# }
 #
-# # The "or" will be true if EITHER condition is true
-# is_tired = True
-# is_nighttime = False
-# if is_tired or is_nighttime:
-#     print("I fell asleep.")
-# else:
-#     print("I am awake.")
-
-# **********************************************
-# ****** SECTION 6 - NESTED IF STATEMENTS ******
-# **********************************************
-
-# # Statements are "Nested" if they are inside of each other.
-# # The inner statement will only be tested if the outer statement is true.
-#
-# # Notice the indentation matters!
-# day_of_the_week = "Friday"
-# if am_hungry:
-#     if day_of_the_week == "Monday":
-#         print("Eat a salad.")
-#     elif day_of_the_week == "Tuesday":
-#         print("Eat tacos.")
-#     elif day_of_the_week == "Wednesday":
-#         print("Eat chicken")
-#     else:
-#         print("Eat soup")
-# else:
-#     print("Eat nothing")
-
-# ***********************************************
-# ****** SECTION 6 - TERNARY IF STATEMENTS ******
-# ***********************************************
-
-# # Ternary if statements are a shorthand way to write conditions when the action is short.
-# # [action] if [condition] else [alternate action]
-#
-# is_light_red = False
-# print("Stop") if is_light_red else print("Go")
+# for department, courses in courses_dictionary.items():
+#     print(f"The {department} Department has the foloowing {len(courses)} classes:")
+#     for course in courses:
+#         print(course)

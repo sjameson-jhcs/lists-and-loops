@@ -1,32 +1,21 @@
-import numbers
-# CALCULATOR CHALLENGE
-# The goal of this challenge is to make a basic console based calculator that can add, subtract, multiply, and divide.
-# I have written in a few useful lines of code for you and added pseudo-code to guide you.
-# Fill in the contents to make this calculator work
-# Feel free to edit existing code or change the overall structure to make the user experience more friendly
+# FIZZ BUZZ
 
-# The "while loop" below will force the console to keep asking for commands until "is_running" becomes false
+# Your goal is print all the numbers up to a chosen value.
+# However, any number divisible by 3 will be replaced by the word "Fizz"
+# Any number divisible by the number 5 will be replaced by the word "Buzz"
+# Any number divisible by both will be replaced by the word "FizzBuzz"
 
+# 1. Your code should prompt the user to input a number.
+# 2. Start printing every number up to that number with the replacements mentioned above
+# 3. Keep a running list of all numbers that were replaced by Fizz, Buzz, and FizzBuzz separately
+# 4. After the target number is reached, print out the 3 lists
 
-is_running = True
-while is_running:
+# Here is an example output for the target number of 16 (Note: yours will probably be on separate lines. That's ok):
+# 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16
+# The Fizz numbers were [3, 6, 9, 12]
+# The Buzz numbers were [5,10]
+# The FizzBuzz numbers were [15]
 
-    # Ask the user which mathematical process they want to do. Or allow them to input a command to quit the program.
-    # Make the prompts user friendly. Your users will not know what their options are unless you tell them.
-    user_command = input("command?")
-
-    # Ask the user for the numbers that will be added, subtracted, etc.
-    # Again, try to make it user friendly
-    # Notice that I am automatically converting their input into a "float". This can cause errors if
-    # they do a non-number input. In the future we will learn how to handle errors.
-    first_number = float(input("number?"))
-    second_number = float(input("number?"))
-
-    # Perform the appropriate mathematical operation that matches their command
-
-    # Handle the case when the user inputs
-
-    # Display the result to user
-
-    # Make it so that the program closes when an appropriate command is given
-    # Hint: When "is_running" becomes False the program will be allowed to end
+# Hint: to determine if a number is divisible by another you can use the modulo function
+# Modulo give the remainder after dividing. The symbol for modulo is %. Here is an example:
+# 10 % 3 == 1
